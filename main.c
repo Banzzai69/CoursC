@@ -11,6 +11,16 @@ int main()
     
     printf("la valeur de num = %d, la valeur de num2 = %i, prix =%.2f \n, char value: %c \n", num , num2 , price, c) ;
     
+    num=15;
+    num2=50;
+    c = 'a';
+
+    num = num2;
+
+
+
+    printf("new value:la valeur de num = %d, la valeur de num2 = %i, prix =%.2f \n, char value: %c \n", num , num2 , price, c) ;
+
     return 0;
 
 }

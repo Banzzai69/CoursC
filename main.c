@@ -3,10 +3,8 @@
 int main()
 {
     int nombre;
-    printf("Entrez un nombre : ");
-    scanf("%d", &nombre);
-    printf("Vous avez entré : %d\n", nombre);
-
+    printf("Hello world\n");
+    
     return 0;
 
 }

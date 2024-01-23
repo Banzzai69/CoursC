@@ -139,9 +139,20 @@ int while_loop(int x)
 while(x <=10)
 {
     printf("%d\n",x);
-    x++;
+    x++;    
 }
 }
+
+void multiple_two(int nbr) {
+    int i = 1;
+    
+    printf("\n Table de multiplication de %d est: \n", nbr);
+    while(i <= 10) {
+        printf(" %d * %d = %d \n", nbr, i, nbr * i);
+        ++i;
+    }
+}
+
 //------------------------------------------------------ fonction main
 
 int main()
@@ -167,5 +178,8 @@ int main()
 
     result_impair(11);
 
-    while_loop(0);
+    while_loop(-10);
+
+    multiple_two(5);
 }
+

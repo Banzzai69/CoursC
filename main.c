@@ -134,7 +134,14 @@ void result_impair(int x)
     else
         printf("%d est pair\n", x);
 }
-
+int while_loop(int x)
+{
+while(x <=10)
+{
+    printf("%d\n",x);
+    x++;
+}
+}
 //------------------------------------------------------ fonction main
 
 int main()
@@ -159,4 +166,6 @@ int main()
     result_inf_a(22, 82);
 
     result_impair(11);
+
+    while_loop(0);
 }

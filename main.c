@@ -1,185 +1,171 @@
 #include <stdio.h>
 
-
-//------------------------------------------------------------------ calcul Somme
-
-int calculer_somme(int x, int y)
-{
-    return x + y;
-}
-
-void affichage_resultat(int x)
-{
-    printf("le résultat est de : %d\n", x);
-}
-
-//--------------------------------------------------------------------- calcul majeur
-
-int majeurs(int age)
-{
-    if(age >= 18){
-        return 1;
-    } else {
-        return 0;
-    }
-}
-
-void affich_age(int age)
-{
-    if(majeurs(age) == 1){
-        printf("%d : majeur\n", age);
-    } else {
-        printf("%d : mineur\n", age);
-    }
-}
-
-//------------------------------------------------- fonction douane
-
-int douane(int pays)
-{
-    int france = 2;
-    int autre = 3;
-   if(pays == 2){
-    return 1;
-   } else {
-    return 0;
-   }
-}
-
-void affich_douane(int pays)
-{
-    if(douane(pays) == 1){
-        printf("passport, carte d'itentité ou permis de conduire svp\n");
-    } else {
-        printf("passport ou carte d'itentité svp\n");
-    }
-}
-
-// ----------------------------------------------------- Testes fonctions comparaisons avec directives au processeur
-
 #define MAX_AGE 100
 #define MIN_AGE 0
 #define MAJOR 18
 
-int majeur(int age);
+// headers 
 
-int max(int x, int y);
+// display results
+void afficher_resultat(int x);
 
-int min(int x, int y);
+// return the amount 
+int calculer_somme(int x, int y);
 
-int equal(int x, int y);
+// test if is major
+int est_majeur(int age);
 
-int sup_a(int x, int y);
+// display age 
+void afficher_age(int age);
 
-int inf_a(int x, int y);
+// test if x is greater than y
+int est_plus_grand(int x, int y);
 
+// test if x is smaller than y
+int est_plus_petit(int x, int y);
+
+// test if x is equal to y
+int est_egal(int x, int y);
+
+// return the bighest value between x and y
 int le_plus_grand(int x, int y);
 
+// return the smallest value between x and y
 int le_plus_petit(int x, int y);
 
-//------------------------------------------- création des fonctions
+// 
+int est_impaire(int x);
 
-// --- Majeur
+//
+int multiple(int x, int y); 
 
-int majeur(int age)
+
+int main()
 {
-    if(age >= 18 && age <=MAX_AGE)
-        return 1;
-    else if(age <= MAJOR && age > MIN_AGE)
-        return 0;
-    else return -1;
+  int a = 11;
+  int b = 10;
+  int c = 5;
+  
+  afficher_resultat(calculer_somme(3, 3));
+ 
+  afficher_resultat(calculer_somme(a, b));
+
+  afficher_age(18);
+  afficher_age(17);
+  afficher_age(100);
+  afficher_age(101);
+  afficher_age(-10);
+
+  // if a is greater than b
+  if(est_plus_grand(a, c) == 1)
+  // display this message 
+    printf("%d est plus grand que %d\n", a,c );
+
+  if(est_plus_petit(c, b)== 1)
+    printf("%d est plus petit que %d\n",c, a );
+
+  if(est_egal(a, b)==1)
+    printf("%d est esgal à %d\n",a, b );
+
+  // display the bigest value 
+  printf("le plus grand entre %d et %d est : %d \n", a, c, le_plus_grand(a, c));
+
+  printf("le plus petit entre %d et %d est : %d \n", a, c, le_plus_petit(a, c));
+
+  if(est_impaire(a) == 0)
+    printf("%d est pair \n", a);
+  else  
+    printf("%d est impaire \n", a);
+
+
+  multiple(5, 30);
+
+
+    
+
+}	
+
+
+void afficher_resultat(int x)
+{
+  printf("le résultat est de : %d\n", x);
+}
+
+int calculer_somme(int x, int y)
+{
+  return  x + y;
+}
+
+int est_majeur(int age)
+{
+  if(age >= MAJOR && age <=MAX_AGE)
+    return 1;
+  else if(age < MAJOR && age > MIN_AGE)
+    return 0;
+  else  
+    return -1;
 }
 
 void afficher_age(int age)
 {
-    if(majeur(age) == 1)
-        printf("%d : majeur\n", age);
-    else if(majeur(age) == 0)
-        printf("%d : mineur\n", age);
-    else
-        printf("%d :erreur\n", age);
+  if(est_majeur(age)== 1)
+    printf("%d : majeur\n", age);
+  else if(est_majeur(age)== 0)
+    printf("%d : mineur\n", age);
+  else
+    printf("%d :erreur\n", age); 
 }
 
-// --- Inférieur
 
-int inf_a(int x, int y)
+int est_plus_grand(int x, int y)
 {
-    if(x < y)
-        return 1;
-    else return 0;
+  if(x > y)
+    return 1;
 }
 
-void result_inf_a(int x, int y)
+// test if x is smaller
+int est_plus_petit(int x, int y)
 {
-    if(inf_a(x, y) == 1)
-        printf("inferieur\n");
-    else
-        printf("superieur\n");
+  if(x<y)
+    return 1;
 }
 
-// --- Impair
-
-int impair(int x)
+int est_egal(int x, int y)
 {
-    if( x%2 == 1)
-        return 1;
-    else 
-        return 0;
+  if(est_plus_grand(x,y) != 1&& est_plus_petit(x, y) !=1)
+    return 1;
 }
 
-void result_impair(int x)
+// return max value
+int le_plus_grand(int x, int y)
 {
-    if(impair(x) == 1)
-        printf("%d est impair\n", x);
-    else
-        printf("%d est pair\n", x);
+  if(est_plus_grand(x,y)==1)
+    return x;
+  else
+    return y;
 }
-int while_loop(int x)
+
+// return min 
+int le_plus_petit(int x, int y)
 {
-while(x <=10)
+  if(est_plus_petit(x, y)==1)
+    return x;
+  else
+    return y;
+}
+
+// 
+int est_impaire(int x)
 {
-    printf("%d\n",x);
-    x++;    
-}
+  return x % 2;
 }
 
-void multiple_two(int nbr) {
-    int i = 1;
-    
-    printf("\n Table de multiplication de %d est: \n", nbr);
-    while(i <= 10) {
-        printf(" %d * %d = %d \n", nbr, i, nbr * i);
-        ++i;
-    }
-}
-
-//------------------------------------------------------ fonction main
-
-int main()
+int multiple(int x, int y)
 {
-    int a = 6;
-    int b = 24;
-
-    int total = 0;
-
-    total = calculer_somme(a, b);
-
-    calculer_somme(a, b);
-
-    affichage_resultat(total);
-
-    affich_age(17);
-
-    affich_douane(3);
-
-    afficher_age(22);
-
-    result_inf_a(22, 82);
-
-    result_impair(11);
-
-    while_loop(-10);
-
-    multiple_two(5);
+  int a = 0;
+  while(a <= y)
+  {
+    printf("%d\n", a);
+    a+=x;
+  }
 }
-

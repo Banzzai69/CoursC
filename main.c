@@ -40,6 +40,7 @@ int est_impaire(int x);
 int multiple(int x, int y); 
 
 
+
 int main()
 {
   int a = 11;
@@ -168,4 +169,15 @@ int multiple(int x, int y)
     printf("%d\n", a);
     a+=x;
   }
+}
+
+int calcul(int n)
+{
+int sum = 0, i =0;
+
+while(i<=n){
+sum= sum+i;
+i=i+1;
+}
+return sum;
 }

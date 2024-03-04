@@ -39,6 +39,11 @@ int est_impaire(int x);
 //
 int multiple(int x, int y); 
 
+//
+int calculs(int n);
+
+//
+int retrait(int n);
 
 
 int main()
@@ -56,6 +61,8 @@ int main()
   afficher_age(100);
   afficher_age(101);
   afficher_age(-10);
+  multiple(6,5);
+  
 
   // if a is greater than b
   if(est_plus_grand(a, c) == 1)
@@ -79,10 +86,9 @@ int main()
     printf("%d est impaire \n", a);
 
 
-  multiple(5, 30);
-
-
-    
+  printf("le resultat est de %d\n",retrait(15));
+  printf("le resultat est de %d\n",calculs(2));
+  
 
 }	
 
@@ -171,13 +177,27 @@ int multiple(int x, int y)
   }
 }
 
-int calcul(int n)
+int calculs(int n)
 {
 int sum = 0, i =0;
 
-while(i<=n){
+while(i<=n)
+{
 sum= sum+i;
 i=i+1;
 }
 return sum;
+}
+
+int retrait(int n)
+{
+int sum =0;
+
+while(n>=0)
+{
+sum= sum+n;
+n=n-1;
+}
+return sum;
+
 }
